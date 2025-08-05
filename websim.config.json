@@ -1,0 +1,134 @@
+{
+  "database": {
+    "schema": {
+      "projects": {
+        "id": {
+          "type": "uuid",
+          "description": "Unique identifier for the project"
+        },
+        "name": {
+          "type": "text",
+          "description": "Name of the project/world"
+        },
+        "description": {
+          "type": "text",
+          "description": "Description of the project"
+        },
+        "scene_data": {
+          "type": "jsonb",
+          "description": "JSON data containing 3D scene configuration, objects, lighting, etc."
+        },
+        "is_public": {
+          "type": "boolean",
+          "description": "Whether the project is publicly visible"
+        },
+        "thumbnail_url": {
+          "type": "text",
+          "description": "URL to project thumbnail image"
+        }
+      },
+      "assets": {
+        "id": {
+          "type": "uuid",
+          "description": "Unique identifier for the asset"
+        },
+        "project_id": {
+          "type": "uuid",
+          "description": "ID of the project this asset belongs to"
+        },
+        "name": {
+          "type": "text",
+          "description": "Original filename of the asset"
+        },
+        "type": {
+          "type": "text",
+          "description": "Type of asset: model, texture, audio, other"
+        },
+        "url": {
+          "type": "text",
+          "description": "Storage URL of the uploaded asset"
+        },
+        "size": {
+          "type": "integer",
+          "description": "File size in bytes"
+        },
+        "metadata": {
+          "type": "jsonb",
+          "description": "Additional metadata about the asset (dimensions, format, etc.)"
+        }
+      },
+      "interactions": {
+        "id": {
+          "type": "uuid",
+          "description": "Unique identifier for the interaction"
+        },
+        "project_id": {
+          "type": "uuid",
+          "description": "ID of the project this interaction belongs to"
+        },
+        "prompt": {
+          "type": "text",
+          "description": "User's natural language prompt"
+        },
+        "response": {
+          "type": "text",
+          "description": "AI response to the prompt"
+        },
+        "scene_changes": {
+          "type": "jsonb",
+          "description": "JSON describing what changes were made to the scene"
+        },
+        "timestamp": {
+          "type": "timestamptz",
+          "description": "When the interaction occurred"
+        }
+      },
+      "world_events": {
+        "id": {
+          "type": "uuid",
+          "description": "Unique identifier for the world event"
+        },
+        "project_id": {
+          "type": "uuid",
+          "description": "ID of the project this event belongs to"
+        },
+        "event_type": {
+          "type": "text",
+          "description": "Type of event: weather_change, character_action, terrain_modify, etc."
+        },
+        "event_data": {
+          "type": "jsonb",
+          "description": "JSON data describing the event parameters"
+        },
+        "duration": {
+          "type": "integer",
+          "description": "Duration of the event in seconds"
+        },
+        "triggered_by": {
+          "type": "text",
+          "description": "What triggered this event (prompt, schedule, user_action)"
+        }
+      },
+      "collaborators": {
+        "id": {
+          "type": "uuid",
+          "description": "Unique identifier for the collaboration record"
+        },
+        "project_id": {
+          "type": "uuid",
+          "description": "ID of the project"
+        },
+        "collaborator_user_id": {
+          "type": "uuid",
+          "description": "ID of the user who has access"
+        },
+        "permission_level": {
+          "type": "text",
+          "description": "Permission level: view, edit, admin"
+        }
+      }
+    },
+    "instructions": "This platform enables AI-powered 3D world creation. Users can upload assets (3D models, textures, audio) and use natural language to build and modify immersive environments. The scene_data field contains the complete 3D scene configuration including object positions, lighting, animations, and spatial relationships. AI interactions modify this data in real-time while maintaining spatial consistency and scene memory. World events can be triggered by prompts to create dynamic, living environments that respond to user commands."
+  }
+}
+

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #0f172a 0%, #581c87 50%, #0f172a 100%);
+  min-height: 100vh;
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(55, 65, 81, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.7);
+}
+
+/* Glassmorphism effects */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Animation utilities */
+.animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Custom button hover effects */
+.btn-glow {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 0 rgba(59, 130, 246, 0);
+}
+
+.btn-glow:hover {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  transform: translateY(-1px);
+}
+
+/* 3D Canvas container */
+.canvas-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Asset grid animations */
+.asset-grid-item {
+  transition: all 0.3s ease;
+}
+
+.asset-grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Drag and drop states */
+.drag-active {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6 !important;
+  transform: scale(1.02);
+}
+
+/* Chat message animations */
+.message-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Progress indicators */
+.progress-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+  background-size: 200% 100%;
+  animation: progress 2s linear infinite;
+}
+
+@keyframes progress {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .canvas-container {
+    height: 300px;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 280px;
+    height: 100vh;
+    z-index: 50;
+    transition: left 0.3s ease;
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bg-gray-800\/30 {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  .text-gray-400 {
+    color: #d1d5db;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
