@@ -407,8 +407,8 @@ function Leaderboard() {
         /* @__PURE__ */ jsxDEV(
           "img",
           {
-            src: `https://images.websim.com/avatar/${String(user.username)}`,
-            alt: String(user.username),
+            src: `https://images.websim.com/avatar/${user.username || "anonymous"}`,
+            alt: user.username || "Anonymous",
             className: "w-8 h-8 rounded-full"
           },
           void 0,
@@ -421,7 +421,7 @@ function Leaderboard() {
           this
         ),
         /* @__PURE__ */ jsxDEV("div", { className: "flex-1", children: [
-          /* @__PURE__ */ jsxDEV("div", { className: "font-medium text-white", children: String(user.username) }, void 0, false, {
+          /* @__PURE__ */ jsxDEV("div", { className: "font-medium text-white", children: user.username || "Anonymous" }, void 0, false, {
             fileName: "<stdin>",
             lineNumber: 296,
             columnNumber: 17
@@ -443,7 +443,7 @@ function Leaderboard() {
           lineNumber: 295,
           columnNumber: 15
         }, this),
-        /* @__PURE__ */ jsxDEV("div", { className: "text-lg font-bold text-blue-400", children: totalScore }, void 0, false, {
+        /* @__PURE__ */ jsxDEV("div", { className: "text-lg font-bold text-blue-400", children: totalScore.toString() }, void 0, false, {
           fileName: "<stdin>",
           lineNumber: 301,
           columnNumber: 15
@@ -580,14 +580,14 @@ function ProjectManager({ selectedProject, onProjectSelect }) {
         onClick: () => onProjectSelect(project),
         className: `p-3 rounded-lg cursor-pointer transition-colors ${selectedProject?.id === project.id ? "bg-blue-600 text-white" : "bg-gray-800/50 hover:bg-gray-700/50 text-gray-200"}`,
         children: [
-          /* @__PURE__ */ jsxDEV("div", { className: "font-medium", children: project.name }, void 0, false, {
+          /* @__PURE__ */ jsxDEV("div", { className: "font-medium", children: project.name || "Untitled Project" }, void 0, false, {
             fileName: "<stdin>",
             lineNumber: 390,
             columnNumber: 15
           }, this),
           /* @__PURE__ */ jsxDEV("div", { className: "text-sm opacity-75", children: [
             "Created ",
-            new Date(project.created_at).toLocaleDateString()
+            project.created_at ? new Date(project.created_at).toLocaleDateString() : "Unknown date"
           ] }, void 0, true, {
             fileName: "<stdin>",
             lineNumber: 391,
