@@ -394,9 +394,9 @@ function Leaderboard() {
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV("div", { className: "space-y-3", children: (leaderboardData || []).map((user, index) => {
-      const projectCount = parseInt(user.project_count || 0);
-      const assetCount = parseInt(user.asset_count || 0);
-      const interactionCount = parseInt(user.interaction_count || 0);
+      const projectCount = Number(user.project_count) || 0;
+      const assetCount = Number(user.asset_count) || 0;
+      const interactionCount = Number(user.interaction_count) || 0;
       const totalScore = projectCount * 10 + assetCount * 2 + interactionCount;
       return /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-3 p-3 bg-gray-700/50 rounded-lg", children: [
         /* @__PURE__ */ jsxDEV("div", { className: `w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${index === 0 ? "bg-yellow-500 text-black" : index === 1 ? "bg-gray-400 text-black" : index === 2 ? "bg-amber-600 text-white" : "bg-gray-600 text-white"}`, children: index + 1 }, void 0, false, {
@@ -407,8 +407,8 @@ function Leaderboard() {
         /* @__PURE__ */ jsxDEV(
           "img",
           {
-            src: `https://images.websim.com/avatar/${user.username}`,
-            alt: user.username,
+            src: `https://images.websim.com/avatar/${String(user.username)}`,
+            alt: String(user.username),
             className: "w-8 h-8 rounded-full"
           },
           void 0,
@@ -421,7 +421,7 @@ function Leaderboard() {
           this
         ),
         /* @__PURE__ */ jsxDEV("div", { className: "flex-1", children: [
-          /* @__PURE__ */ jsxDEV("div", { className: "font-medium text-white", children: user.username }, void 0, false, {
+          /* @__PURE__ */ jsxDEV("div", { className: "font-medium text-white", children: String(user.username) }, void 0, false, {
             fileName: "<stdin>",
             lineNumber: 296,
             columnNumber: 17
