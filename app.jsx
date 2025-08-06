@@ -393,7 +393,7 @@ function Leaderboard() {
       lineNumber: 269,
       columnNumber: 7
     }, this),
-    /* @__PURE__ */ jsxDEV("div", { className: "space-y-3", children: leaderboardData?.map((user, index) => /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-3 p-3 bg-gray-700/50 rounded-lg", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "space-y-3", children: (leaderboardData || []).map((user, index) => /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-3 p-3 bg-gray-700/50 rounded-lg", children: [
       /* @__PURE__ */ jsxDEV("div", { className: `w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${index === 0 ? "bg-yellow-500 text-black" : index === 1 ? "bg-gray-400 text-black" : index === 2 ? "bg-amber-600 text-white" : "bg-gray-600 text-white"}`, children: index + 1 }, void 0, false, {
         fileName: "<stdin>",
         lineNumber: 276,
@@ -422,11 +422,11 @@ function Leaderboard() {
           columnNumber: 15
         }, this),
         /* @__PURE__ */ jsxDEV("div", { className: "text-sm text-gray-400", children: [
-          user.project_count,
+          user.project_count || 0,
           " projects \u2022 ",
-          user.asset_count,
+          user.asset_count || 0,
           " assets \u2022 ",
-          user.interaction_count,
+          user.interaction_count || 0,
           " interactions"
         ] }, void 0, true, {
           fileName: "<stdin>",
@@ -438,7 +438,7 @@ function Leaderboard() {
         lineNumber: 289,
         columnNumber: 13
       }, this),
-      /* @__PURE__ */ jsxDEV("div", { className: "text-lg font-bold text-blue-400", children: parseInt(user.project_count) * 10 + parseInt(user.asset_count) * 2 + parseInt(user.interaction_count) }, void 0, false, {
+      /* @__PURE__ */ jsxDEV("div", { className: "text-lg font-bold text-blue-400", children: parseInt(user.project_count || 0) * 10 + parseInt(user.asset_count || 0) * 2 + parseInt(user.interaction_count || 0) }, void 0, false, {
         fileName: "<stdin>",
         lineNumber: 295,
         columnNumber: 13
